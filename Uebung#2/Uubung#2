@@ -1,3 +1,5 @@
+Aufgabe1
+
 CREATE TABLE factions (id SERIAL PRIMARY KEY, name TEXT, description TEXT, headquarters TEXT, membership TEXT, seat TEXT, founding_year INTEGER);
 
 INSERT INTO factions (name, description, headquarters, membership, seat, founding_year) VALUES
@@ -14,6 +16,16 @@ INSERT INTO factions (name, description, headquarters, membership, seat, foundin
 ('New Republic', 'Democratic government formed after the fall of the Galactic Empire.', 'Chandrila', 500000, 'Senate Building', 5),
 ('Knights of Ren', 'Dark side practitioners under the leadership of Kylo Ren.', 'Unknown', 12, 'Unknown', 21),
 ('Tusken Raiders', 'Indigenous inhabitants of Tatooine, known as Sand People.', 'Tatooine', 20000, 'Various Encampments', -4500);
+
+
+
+
+
+
+
+Aufgabe2
+
+ALTER TABLE people ADD COLUMN faction_id INTEGER;
 
 UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Luke Skywalker';
 UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'C-3PO';
@@ -56,3 +68,30 @@ UPDATE people SET faction_id = NULL WHERE name = 'Watto';
 UPDATE people SET faction_id = NULL WHERE name = 'Sebulba';
 UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Galactic Republic') WHERE name = 'Quarsh Panaka';
 UPDATE people SET faction_id = NULL WHERE name = 'Shmi Skywalker';
+
+
+
+
+
+Aufgabe3
+
+CREATE TABLE starships (name TEXT, model TEXT, manufacturer TEXT, cost_in_credits BIGINT, length FLOAT, max_atmosphering_speed INTEGER, crew TEXT, passengers INTEGER, cargo_capacity BIGINT, consumables TEXT, hyperdrive_rating FLOAT, MGLT INTEGER, starship_class TEXT, url TEXT);
+
+INSERT INTO starships(name, model, manufacturer, cost_in_credits, length,
+max_atmosphering_speed, crew, passengers, cargo_capacity, consumables,
+hyperdrive_rating, MGLT, starship_class, url) VALUES ('Rogue Shadow', 'SX-3
+Stealth Ship', 'Sienar Fleet Systems', 240000, 21.5, 1150, '1', 2, 15000,
+'5 days', 1.5, 95, 'Stealth ship', 'http://swapi.dev/api/starships/100/');
+
+\COPY starships (name, model, manufacturer, cost_in_credits, length, max_atmosphering_speed, crew, passengers, cargo_capacity, consumables, hyperdrive_rating, mglt, starship_class, url)
+FROM '/home/dabis/Downloads/starships.csv'
+DELIMITER ';'
+CSV HEADER;
+
+
+
+
+
+
+Aufgabe4
+
