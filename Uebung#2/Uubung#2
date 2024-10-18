@@ -1,0 +1,58 @@
+CREATE TABLE factions (id SERIAL PRIMARY KEY, name TEXT, description TEXT, headquarters TEXT, membership TEXT, seat TEXT, founding_year INTEGER);
+
+INSERT INTO factions (name, description, headquarters, membership, seat, founding_year) VALUES
+('Galactic Republic', 'The democracy governing the galaxy before the formation of the Galactic Empire.', 'Coruscant', 1500000, 'Senate Building', -25000),
+('Jedi Order', 'Protectors of the Galactic Republic and practitioners of the light side of the Force.', 'Coruscant', 10000, 'Jedi Temple', -25000),
+('Sith', 'Practitioners of the dark side of the Force and adversaries of the Jedi Order.', 'Moraband', 100, 'Sith Shrine', -7000),
+('Galactic Empire', 'Autocracy formed from the Galactic Republic, led by the Emperor.', 'Coruscant', 2500000, 'Imperial Palace', -19),
+('Rebel Alliance', 'Rebellion against the Galactic Empire aiming to restore the Galactic Republic.', 'Yavin IV', 80000, 'Great Temple', -2),
+('Mandalorians', 'A warrior culture known for their armor.', 'Mandalore', 100000, 'Keldabe', -7000),
+('First Order', 'Military dictatorship, inspired by the Galactic Empire, seeking galaxy control.', 'Starkiller Base', 500000, 'Command Center', 21),
+('Resistance', 'Military force fighting against the First Order, backed by remnants of the New Republic.', 'D’Qar', 4000, 'Resistance Base', 28),
+('Trade Federation', 'Powerful trading corporation, known for its blockade of Naboo.', 'Cato Neimoidia', 1500, 'Trade Federation Palace', -350),
+('Bounty Hunters Guild', 'Organization of bounty hunters offering services to the highest bidder.', 'Tatooine', 2000, 'Guild Hall', -1000),
+('New Republic', 'Democratic government formed after the fall of the Galactic Empire.', 'Chandrila', 500000, 'Senate Building', 5),
+('Knights of Ren', 'Dark side practitioners under the leadership of Kylo Ren.', 'Unknown', 12, 'Unknown', 21),
+('Tusken Raiders', 'Indigenous inhabitants of Tatooine, known as Sand People.', 'Tatooine', 20000, 'Various Encampments', -4500);
+
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Luke Skywalker';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'C-3PO';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'R2-D2';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Galactic Empire') WHERE name = 'Darth Vader';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Leia Organa';
+UPDATE people SET faction_id = NULL WHERE name = 'Owen Lars';
+UPDATE people SET faction_id = NULL WHERE name = 'Beru Whitesun lars';
+UPDATE people SET faction_id = NULL WHERE name = 'R5-D4';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Biggs Darklighter';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Jedi Order') WHERE name = 'Obi-Wan Kenobi';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Jedi Order') WHERE name = 'Anakin Skywalker';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Galactic Empire') WHERE name = 'Wilhuff Tarkin';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Chewbacca';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Han Solo';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Bounty Hunters Guild') WHERE name = 'Greedo';
+UPDATE people SET faction_id = NULL WHERE name = 'Jabba Desilijic Tiure';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Wedge Antilles';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Jek Tono Porkins';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Jedi Order') WHERE name = 'Yoda';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Sith') WHERE name = 'Palpatine';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Bounty Hunters Guild') WHERE name = 'Boba Fett';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Bounty Hunters Guild') WHERE name = 'IG-88';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Bounty Hunters Guild') WHERE name = 'Bossk';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Lando Calrissian';
+UPDATE people SET faction_id = NULL WHERE name = 'Lobot';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Ackbar';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Mon Mothma';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Arvel Crynyd';
+UPDATE people SET faction_id = NULL WHERE name = 'Wicket Systri Warrick';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Rebel Alliance') WHERE name = 'Nien Nunb';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Jedi Order') WHERE name = 'Qui-Gon Jinn';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Trade Federation') WHERE name = 'Nute Gunray';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Galactic Republic') WHERE name = 'Finis Valorum';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Galactic Republic') WHERE name = 'Jar Jar Binks';
+UPDATE people SET faction_id = NULL WHERE name = 'Roos Tarpals';
+UPDATE people SET faction_id = NULL WHERE name = 'Rugor Nass';
+UPDATE people SET faction_id = NULL WHERE name = 'Ric Olié';
+UPDATE people SET faction_id = NULL WHERE name = 'Watto';
+UPDATE people SET faction_id = NULL WHERE name = 'Sebulba';
+UPDATE people SET faction_id = (SELECT id FROM factions WHERE name = 'Galactic Republic') WHERE name = 'Quarsh Panaka';
+UPDATE people SET faction_id = NULL WHERE name = 'Shmi Skywalker';
